@@ -1,24 +1,22 @@
-# README
+# OTOÑO app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+App e-commerce de venta de ropa, hecho con el propósito de poner en práctica y mejorar habilidades con Ruby on Rails.
+Se usarán gemas como:
+- Devise
+- JWT
+- CANCANCAN
+- I18n
+- Annotate
+- ViewComponent
+- Stimulus
+- Turbo
+- Stimulus Reflex
+- Sidekiq
 
-Things you may want to cover:
+El webpacker elegido es esbuild.
 
-* Ruby version
+## Ruby on Rails 7.1.3.2
+## Ruby 3.2.3
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Documentación para instalar gemas básicas (en construcción)
+https://www.notion.so/Manual-para-instalar-gemas-b-sicas-1fd1d7507368496fa7a855d8915d12cb?pvs=4
