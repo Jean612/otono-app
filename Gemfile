@@ -100,7 +100,7 @@ gem 'i18n-js'
 gem 'i18n-tasks', '~> 1.0', '>= 1.0.12'
 gem 'rails-i18n', '~> 7.0', '>= 7.0.5'
 
-gem "stimulus_reflex", "= 3.5.0.rc3"
 gem "redis-session-store", "~> 0.11.5"
+gem 'stimulus_reflex', '3.5.0.rc4'
 
 gem "view_component", "~> 3.10"
