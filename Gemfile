@@ -104,3 +104,6 @@ gem "redis-session-store", "~> 0.11.5"
 gem 'stimulus_reflex', '3.5.0.rc4'
 
 gem "view_component", "~> 3.10"
+
+# SEO
+gem "meta-tags"
