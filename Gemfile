@@ -110,3 +110,6 @@ gem 'view_component', '~> 3.10'
 
 # SEO
 gem 'meta-tags'
+
+# Search
+gem 'pg_search'

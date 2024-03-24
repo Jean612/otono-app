@@ -19,6 +19,8 @@
 #  index_products_on_name         (name)
 #
 class Product < ApplicationRecord
+  include(PgSearch::Model)
+
   has_many :product_categories, dependent: :destroy
   has_many :categories, through: :product_categories
 
@@ -32,11 +34,13 @@ class Product < ApplicationRecord
   scope :featured, -> { in_stock.order('RANDOM()').limit(20) }
   scope :by_category, ->(category) { joins(:categories).where(categories: { slug: category }) }
 
-  def self.search(search)
-    if search
-      where('name ILIKE ?', "%#{search}%")
-    else
-      all
-    end
-  end
+  # PgSearch scopes
+  pg_search_scope :search_by_name_and_description, against: %i[name description],
+                                                   ignoring: :accents,
+                                                   associated_against: { categories: %i[name slug] },
+                                                   using: { tsearch: {
+                                                     prefix: true,
+                                                     dictionary: 'english', # change to spanish in a future
+                                                     any_word: true
+                                                   } }
 end

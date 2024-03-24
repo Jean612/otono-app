@@ -72,4 +72,33 @@ RSpec.describe Product, type: :model do
       end
     end
   end
+
+  context 'pg_search_scope' do
+    describe '.search_by_name_and_description' do
+      let!(:product1) { create(:product, name: 'Apple', description: 'Fresh and juicy') }
+      let!(:product2) { create(:product, name: 'Banana', description: 'Sweet and yellow') }
+      let!(:product3) { create(:product, name: 'Orange', description: 'Citrus fruit') }
+
+      it 'returns products matching the search query' do
+        results = Product.search_by_name_and_description('fruit')
+
+        expect(results.ids).to include(product3.id)
+      end
+
+      it 'ignores accents in the search query' do
+        results = Product.search_by_name_and_description('citrus')
+
+        expect(results).to include(product3)
+      end
+
+      it 'searches in associated categories' do
+        category = create(:category, name: 'Fruits')
+        product1.categories << category
+
+        results = Product.search_by_name_and_description('fruits')
+
+        expect(results).to include(product1)
+      end
+    end
+  end
 end
