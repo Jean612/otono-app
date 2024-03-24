@@ -447,6 +447,7 @@ DEPENDENCIES
   rubocop-rspec (~> 2.19, >= 2.19.0)
   selenium-webdriver
   shoulda (~> 4.0.0)
+  shoulda-matchers
   simplecov (~> 0.22.0)
   sprockets-rails
   stimulus-rails
