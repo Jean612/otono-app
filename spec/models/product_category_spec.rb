@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: product_categories
@@ -24,5 +26,9 @@ RSpec.describe ProductCategory, type: :model do
   describe 'associations' do
     it { should belong_to(:category) }
     it { should belong_to(:product) }
+  end
+
+  describe 'validations' do
+    it { should validate_uniqueness_of(:category_id).scoped_to(:product_id) }
   end
 end

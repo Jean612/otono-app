@@ -15,6 +15,7 @@
 #
 FactoryBot.define do
   factory :category do
-    name { "MyString" }
+    name { Faker::Lorem.word }
+    slug { Faker::Internet.slug }
   end
 end

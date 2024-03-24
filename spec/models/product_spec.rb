@@ -36,4 +36,40 @@ RSpec.describe Product, type: :model do
     it { should have_many(:product_categories) }
     it { should have_many(:categories).through(:product_categories) }
   end
+
+  context 'scopes' do # rubocop:disable Metrics/BlockLength
+    describe '.in_stock' do
+      it 'returns products with stock greater than 0' do
+        product1 = create(:product, stock: 0)
+        product2 = create(:product, stock: 5)
+
+        expect(Product.in_stock).to include(product2)
+        expect(Product.in_stock).not_to include(product1)
+      end
+    end
+
+    describe '.featured' do
+      it 'returns 20 random products in stock' do
+        Product.destroy_all
+        featured_products = create_list(:product, 20, stock: 5)
+
+        result = Product.featured
+
+        expect(result.count).to eq(20)
+        expect(result.ids).to match_array(featured_products.map(&:id))
+      end
+    end
+
+    describe '.by_category' do
+      it 'returns products belonging to the specified category' do
+        category = create(:category)
+        product1 = create(:product)
+        product2 = create(:product)
+        product1.categories << category
+
+        expect(Product.by_category(category.slug)).to include(product1)
+        expect(Product.by_category(category.slug)).not_to include(product2)
+      end
+    end
+  end
 end

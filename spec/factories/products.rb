@@ -18,10 +18,10 @@
 #
 FactoryBot.define do
   factory :product do
-    name { "MyString" }
-    price { "9.99" }
+    name { 'MyString' }
+    price { '9.99' }
     stock { 1 }
-    image_path { "MyString" }
-    description { "MyText" }
+    image_path { 'MyString' }
+    description { 'MyText' }
   end
 end
