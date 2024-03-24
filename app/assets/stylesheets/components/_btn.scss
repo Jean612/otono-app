@@ -69,4 +69,21 @@
       color: var(--color-white);
     }
   }
+
+  &--no-padding{
+    padding: 0;
+    border: 0;
+  }
+
+  &--icon-navbar {
+    padding: var(--space-s);
+    transition: .5s ease-in-out all;
+    &:hover,
+    &:focus,
+    &:focus-within,
+    &:active {
+      border-radius: var(--circle-radius);
+      background-color: var(--color-gray);
+    }
+}
 }

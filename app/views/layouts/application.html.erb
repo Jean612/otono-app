@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- <title>OtonoApp</title> -->
-    <%= display_meta_tags site: "Otoño" %>
+    <%= display_meta_tags %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path('favicon.ico') %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
   <body>
+    <%= render "layouts/main_navbar" %>
+
+    <div id="flash" class="flash">
+      <%= render "layouts/flash" %>
+    </div>
+
     <%= yield %>
   </body>
 </html>

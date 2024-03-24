@@ -1,25 +1,22 @@
 .navbar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   box-shadow: var(--shadow-large);
-  padding: var(--space-xs) var(--space-m);
-  margin-bottom: var(--space-xxl);
+  padding: var(--space-m) var(--space-s) var(--space-m) var(--space-l);
   background-color: (var(--color-white));
+  position: fixed;
+  top: 0;
+  width: 100%;
 
-  &__brand {
-    font-weight: bold;
-    font-size: var(--font-size-xl);
+  &__left-side, &__right-side {
+    display: flex;
+    align-items: center;
     color: var(--color-text-header);
   }
 
-  &__name {
-    font-weight: bold;
-    margin-left: auto;
-    margin-right: var(--space-s);
+  &__left-side {
     color: var(--color-text-header);
-  }
-
-  &__right {
-    margin-left: auto;
+    gap: var(--space-xs);
   }
 }
