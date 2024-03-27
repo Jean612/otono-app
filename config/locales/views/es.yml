@@ -2,4 +2,8 @@
 es:
   views:
     home:
-      title: PRODUCTOS MÁS DESTACADOS
+      featured_products:
+        title: PRODUCTOS MÁS DESTACADOS
+        subtitle: Más populares
+    products_by_category:
+      title: CATEGORIA

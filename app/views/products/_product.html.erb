@@ -1,0 +1,9 @@
+<div class='featured-products__item'>
+  <div class='featured-products__item-image'>
+    <%= image_tag product.image_path %>
+  </div>
+  <div class='featured-products__item-info'>
+    <h6 class='featured-products__item-title'><%= product.name %></h6>
+    <p class='featured-products__item-price'><%= number_to_currency(product.price) %></p>
+  </div>
+</div>

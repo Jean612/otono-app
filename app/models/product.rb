@@ -31,7 +31,7 @@ class Product < ApplicationRecord
   validates :image_path, presence: true
 
   scope :in_stock, -> { where('stock > 0') }
-  scope :featured, -> { in_stock.order('RANDOM()').limit(20) }
+  scope :featured, -> { in_stock.order('RANDOM()').limit(10) }
   scope :by_category, ->(category) { joins(:categories).where(categories: { slug: category }) }
 
   # PgSearch scopes

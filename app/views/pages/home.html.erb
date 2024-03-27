@@ -1,3 +1,15 @@
-<div class="container">
-  <h5><%= t('views.home.title') %></h1>
-</div>
+<main class="container">
+  <div class="featured-products">
+    <h5 class="featured-products__title"><%= t('views.home.featured_products.title') %></h5>
+    <h5 class="featured-products__subtitle"><%= t('views.home.featured_products.subtitle') %></h5>
+    <div class="featured-products__items-slider" data-controller="slider">
+      <div class="featured-products__list" data-slider-target="container">
+        <%= render partial: 'products/product', collection: @featured, as: :product %>
+      </div>
+      <div class="featured-products__move-buttons">
+        <button data-slider-target="left"><</button>
+        <button data-slider-target="right">></button>
+      </div>
+    </div>
+  </div>
+</main>
